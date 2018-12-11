@@ -13,14 +13,21 @@ radii[4] = [0,0,0,0,6,42,11,3,12,16,27,33]
 radii[5] = [33,13,37,47,14,34,41,6,46,18,17,8]
 radii[6] = [15,4,23,6,5,10,0,0,0,0,0,0]
 
+c = ['blue', 'orange', 'green', 'red','blue', 'orange', 'green', 'red']
+
 
 N = 12 		# Months
-bottom = 15	# Base circle gap
-separation = 1.5	# Gap between two circles
 max_height_all = [max(radii[i]) for i in range(NoY)]
-print max_height_all, len(max_height_all)
+separation = 0.15 * max(max_height_all)	# Gap between two circles
+bottom = 0.35 * max(max_height_all)	# Base circle gap
+#separation = 1.5	# Gap between two circles
+#bottom = 15	# Base circle gap
 
-c = ['blue', 'orange', 'green', 'red','blue', 'orange', 'green', 'red']
+print "max value in each year : ", max_height_all, \
+    "\nNo. of years : ", NoY, \
+    "\nGap between <max-height> and outer circle : ", separation
+
+
 
 ## Getting radius and angle --  for each year-circle
 bottom_all = [None for i in range(len(max_height_all))]
@@ -35,7 +42,7 @@ width = (2*np.pi) / (4*N)
 ## Plot settings
 ax = plt.subplot(111, polar=True)
 ax.spines['polar'].set_visible(False)
-# ax.axes.get_xaxis().set_visible(False)
+#ax.axes.get_xaxis().set_visible(False)
 ax.axes.get_yaxis().set_visible(False)
 
 
