@@ -12,6 +12,7 @@ radii[3] = [35,12,8,6,13,29,12,22,0,0,10,26]
 radii[4] = [0,0,0,0,6,42,11,3,12,16,27,33]
 radii[5] = [33,13,37,47,14,34,41,6,46,18,17,8]
 radii[6] = [15,4,23,6,5,10,0,0,0,0,0,0]
+plot_title = "Number of Individuals"
 
 c = ['blue', 'orange', 'green', 'red','blue', 'orange', 'green', 'red']
 
@@ -44,15 +45,21 @@ ax = plt.subplot(111, polar=True)
 ax.spines['polar'].set_visible(False)
 #ax.axes.get_xaxis().set_visible(False)
 ax.axes.get_yaxis().set_visible(False)
-
+ax.set_title(plot_title, y=1.2)
 
 ## Feed data and labels to circular axis
 for i in range(len(max_height_all)): 
     bars = ax.bar(theta, radii[i], width=width, bottom=bottom_all[i], color=c[i], fill=True)
     circle = plt.Circle((0, 0), bottom_all[i], transform=ax.transData._b, color=c[i], fill=False)
     ax.add_artist(circle)
+
 ax.set_xticklabels(['May','','Feb','','Nov','','Aug'])
 
+## Show legends
+legend_text = ["Year " + str(i+1) + "; ( Max : " + str(max_height_all[i]) + " )" for i in range(NoY)]
+lgd = ax.legend(legend_text, loc=1, bbox_to_anchor=(1.35, 1.2), prop={'size':6}, ncol=1, labelspacing=0.5)
+
 ## Show / Save
-plt.savefig('test.png', dpi=300, transparent=True)
+plt.tight_layout()
+plt.savefig('./test.png', dpi=300, transparent=True, bbox_extra_artists=(lgd,))
 plt.show()
