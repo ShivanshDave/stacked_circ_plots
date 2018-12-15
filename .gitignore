@@ -1,4 +1,5 @@
-/plots/*
+/plots/*.svg
+/plots/*.png
 /local/*
 .ipy*
 shipra*
