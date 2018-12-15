@@ -40,23 +40,23 @@ theta = np.linspace(0.0, 2 * np.pi, N, endpoint=False)
 width = (2*np.pi) / (4*N)
 # print width
 
-## Plot settings
-ax = plt.subplot(111, polar=True)
-#ax.axes.get_xaxis().set_visible(False)
-ax.axes.get_yaxis().set_visible(False)
-ax.spines['polar'].set_visible(False)
-ax.set_title(plot_title, y=1.2)
-ax.grid(False)
-
 ## Feed data and labels to circular axis
+ax = plt.subplot(111, polar=True)
 for i in range(len(max_height_all)): 
     bars = ax.bar(theta, radii[i], width=width, bottom=bottom_all[i], color=c[i], fill=True)
     circle = plt.Circle((0, 0), bottom_all[i], transform=ax.transData._b, color=c[i], fill=False)
     ax.add_artist(circle)
 
-ax.set_xticklabels(['May','','Feb','','Nov','','Aug'])
 
-## Show legends
+## Plot settings
+ax.set_xticklabels(['May','','Feb','','Nov','','Aug'])
+#ax.axes.get_xaxis().set_visible(False)
+ax.axes.get_yaxis().set_visible(False)
+ax.spines['polar'].set_visible(False)
+ax.grid(False)
+
+## Show legends and title
+ax.set_title(plot_title, y=1.2)
 legend_text = ["Year " + str(i+1) + "; ( Max : " + str(max_height_all[i]) + " )" for i in range(NoY)]
 lgd = ax.legend(legend_text, loc=1, bbox_to_anchor=(1.35, 1.2), prop={'size':6}, ncol=1, labelspacing=0.5)
 
