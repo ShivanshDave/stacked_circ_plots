@@ -42,10 +42,11 @@ width = (2*np.pi) / (4*N)
 
 ## Plot settings
 ax = plt.subplot(111, polar=True)
-ax.spines['polar'].set_visible(False)
 #ax.axes.get_xaxis().set_visible(False)
 ax.axes.get_yaxis().set_visible(False)
+ax.spines['polar'].set_visible(False)
 ax.set_title(plot_title, y=1.2)
+ax.grid(False)
 
 ## Feed data and labels to circular axis
 for i in range(len(max_height_all)): 
