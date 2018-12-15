@@ -1,3 +1,7 @@
+/plots/*
 /local/*
 .ipy*
 shipra*
+*.swp
+*.save
+mydata*
