@@ -1,0 +1,4 @@
+Free to use, modify, redistribute the code for any application. 
+No citation, acknowledgement or pointer to this repository are required.
+I withdraw any rights over this code and it's outcomes.
+Use it at your own risk.
