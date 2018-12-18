@@ -66,5 +66,5 @@ lgd = ax.legend(legend_text, loc=1, bbox_to_anchor=(1.35, 1.2), prop={'size':6},
 
 ## Show / Save
 plt.tight_layout()
-plt.savefig('./plots/'+plot_title.replace(" ", "_")+'.svg', dpi=600, transparent=True, bbox_extra_artists=(lgd,))
+plt.savefig('./plots/'+plot_title.replace(" ", "_")+'.svg', transparent=True, bbox_extra_artists=(lgd,))
 plt.show()
